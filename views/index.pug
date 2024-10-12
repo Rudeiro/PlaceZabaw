@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Strona Główna
+    link(rel='stylesheet', href='/stylesheets/styles.css') 
+  body
+    header
+      nav
+        ul
+          li: a(href='/') Strona Główna
+          li: a(href='/photos') Zdjęcia
+          li(style='float:right;') 
+            a(href='/api/auth/login') Zaloguj
+            a(href='/api/auth/register') Zarejestruj
+            
+    main
+      h1 Witajcie!
+      
+    footer
+      p &copy; 2024 Twoja Strona

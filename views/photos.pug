@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+
+  if images && images.length > 0
+    .gallery
+      each image in images
+        .photo-item
+          // Poprawna ścieżka do zdjęcia
+          img(src=`/uploads/${image.imageUrl.split('/').pop()}`, alt="Zdjęcie") 
+          p= image.description
+  else
+    p Brak zdjęć do wyświetlenia.

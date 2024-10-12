@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+  body
+  h1 Logowanie
+  if messages && messages.error
+    // Jeśli jest błąd, wyświetl komunikat
+    p.error= messages.error 
+  form(action='/api/auth/login', method='POST')
+    div
+        label(for='email') Email
+        input(type='email', name='email', required=true) 
+    div
+        label(for='password') Hasło
+        input(type='password', name='password', required=true)
+    div
+        button(type='submit') Zaloguj

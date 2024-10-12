@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Dodaj zdjęcie
+  body
+    h1 Dodaj zdjęcie
+    form(action='/upload', method='POST', enctype='multipart/form-data')
+      label(for='description') Opis:
+      input(type='text', name='description', required)
+      
+      label(for='image') Wybierz zdjęcie:
+      input(type='file', name='image', required)
+
+      button(type='submit') Dodaj

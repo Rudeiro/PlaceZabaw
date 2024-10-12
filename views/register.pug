@@ -1,0 +1,21 @@
+doctype html
+doctype html
+html(lang="pl")
+    head
+        title Rejestracja
+        link(rel="stylesheet", href="/stylesheets/style.css")
+    body
+        h1 Rejestracja
+        form(action='/api/auth/register', method='POST')
+            label(for='email') Email:
+            input(type='email', name='email', required)
+
+            label(for='password') Hasło:
+            input(type='password', name='password', required)
+
+            button(type='submit') Zarejestruj się
+
+        // Link do logowania
+        p Już masz konto? 
+            a(href='/login') Zaloguj się
+            
