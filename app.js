@@ -14,6 +14,7 @@ const bodyParser = require('body-parser');
 
 
 var indexRouter = require('./routes/index');
+var photosRouter = require('./routes/photos');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -61,6 +62,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
+app.use('/', photosRouter);
 app.use('/users', usersRouter);
 app.use('/api/auth', authRouter);
 

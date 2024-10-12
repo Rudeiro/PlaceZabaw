@@ -2,7 +2,22 @@ extends layout
 
 block content
   h1= title
+  // Search Form
+  form(action='/photos', method='GET')
+    div
+      label(for='description') Opis:
+      input(type='text', name='description', placeholder='Szukaj po opisie', value=description)
 
+    div
+      label(for='dateFrom') Data od:
+      input(type='date', name='dateFrom', value=dateFrom)
+
+    div
+      label(for='dateTo') Data do:
+      input(type='date', name='dateTo', value=dateTo)
+
+    button(type='submit') Filtruj
+ 
   if images && images.length > 0
     .gallery
       each image in images
