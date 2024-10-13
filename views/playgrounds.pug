@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  header
+    nav
+      ul
+        li: a(href='/') Strona Główna
+        li: a(href='/photos') Zdjęcia
+        li: a(href='/playgrounds') Playgrounds
+        li(style='float:right;') 
+          a(href='/api/auth/login') Zaloguj
+          a(href='/api/auth/register') Zarejestruj
+
+  main
+    h1 Playgrounds!
+    h1 Add playground
+    form(action='/upload_playground', method='POST', enctype='multipart/form-data')
+      label(for='city') City:
+      input(type='text', name='city', required)
+
+      label(for='images') Wybierz zdjęcie:
+      input(type='file', name='images', multiple, required)
+
+      button(type='submit') Dodaj
+
+    if playgrounds && playgrounds.length > 0
+        .gallery
+            each playground in playgrounds                
+                // Wyświetl nazwę miasta
+                p= playground.city 
+                // Iteracja po obrazach
+                each imageUrl in playground.images
+                    .photo-item  
+                        // Poprawna ścieżka do zdjęcia
+                        p Debug pojedynczy imageUrl: #{imageUrl}
+                        img(src=`/uploads/${imageUrl.split('/').pop()}`, alt="Zdjęcie") 
+    else
+        p Brak placów zabaw do wyświetlenia.
+
+  footer
+    p &copy; 2024 Twoja Strona

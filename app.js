@@ -15,7 +15,9 @@ const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var photosRouter = require('./routes/photos');
+var playgroundsRouter = require('./routes/playgrounds');
 var usersRouter = require('./routes/users');
+var uploaderRouter = require('./routes/uploader');
 
 var app = express();
 
@@ -63,8 +65,11 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/', photosRouter);
+app.use('/', playgroundsRouter);
 app.use('/users', usersRouter);
 app.use('/api/auth', authRouter);
+app.use('/', uploaderRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
